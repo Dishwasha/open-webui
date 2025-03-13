@@ -593,7 +593,7 @@ def generate_ollama_batch_embeddings(
             f"{url}/api/embed",
             headers={
                 "Content-Type": "application/json",
-                "Authorization": f"Bearer {key}",
+                **({"Authorization": f"Bearer {key}"} if key else {}),
                 **(
                     {
                         "X-OpenWebUI-User-Name": user.name,
